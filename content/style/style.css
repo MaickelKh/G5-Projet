@@ -1,0 +1,365 @@
+/* fonts */
+@font-face {
+    font-family: 'Roboto';
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: url(fonts/RobotoCondensed-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'RobotoBold' ;
+    src: url(fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'RobotoCondensedBold';
+    src: url(fonts/RobotoCondensed-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'RobotoCondensedItalic';
+    src: url(fonts/RobotoCondensed-Italic.ttf);
+}
+
+/* variables */
+body{
+    --Header : #111;
+    --hamburgerButton : #ffffff;
+
+    --tailleHamburgerButton : 35px;
+    font-family: "Roboto" ,Arial, Helvetica, sans-serif;
+}
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* header */
+header{
+    height: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Header);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+}
+
+header>div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header>div>a{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header>div>a>img{
+    height: 45%;
+}
+
+header>div>svg {
+    stroke: var(--hamburgerButton);
+    width: var(--tailleHamburgerButton);
+    height: var(--tailleHamburgerButton);
+    padding: 10px;
+}
+
+header>div>a>svg {
+    stroke: var(--hamburgerButton);
+    width: var(--tailleHamburgerButton);
+    height: var(--tailleHamburgerButton);
+    padding: 10px;
+}
+
+header nav{
+    position: fixed;
+    left: -100%;
+    height: 100vh;
+    width: 80%;
+    background-color: #ffffff;
+    top: 65px;
+    transition: 0.5s;
+    z-index: 2;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+header nav>a{
+    font-family: "RobotoCondensedBold" ,Arial, Helvetica, sans-serif;
+    color: #111;
+    font-size: 1.3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+header nav>a:hover{
+    color: #1241FF;
+}
+
+header nav>a:active, header nav>a:focus{
+    color: #496eff;
+    text-decoration: underline;
+}
+
+header nav>a:first-child{
+    margin-top: 30px;
+}
+
+ 
+header nav::-webkit-scrollbar {
+    display: none;
+}
+  
+
+header nav #socialMedia1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+}
+
+header nav #socialMedia1 a{
+    padding: 7px;
+    border: solid 1px rgba(17, 17, 17, 0.027);
+    border-radius: 1000px;
+    box-shadow: 0 0 10px #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+/* footer */
+footer{
+    background-image: url("img/bgFooter.png");
+    background-size: cover;
+    font-family: "Roboto" ,Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer div{
+    width: 85%;
+    height: 90%;
+}
+
+footer div img{
+    height: 30px;
+    padding: 10px 0;
+}
+
+footer div a{
+    display: block;
+    color: #ffffff;
+    font-family: "RobotoCondensed" ,Arial, Helvetica, sans-serif;
+    padding: 4px 0;
+}
+
+footer div a:hover, footer div a:focus{
+    text-decoration: underline;
+}
+
+footer div a:active{
+    color: #0e33c5;
+}
+
+footer div .footerTitle{
+    text-transform: uppercase;
+    font-family: "RobotoBold" ,Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    padding: 20px 0;
+}
+
+footer div p{
+    font-family: "RobotoCondensed" ,Arial, Helvetica, sans-serif;
+    padding: 5px 0;
+}
+
+footer div .footerSubTitle{
+    font-family: "RobotoBold" ,Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 10px 0 10px 0;
+}
+
+/* Form */
+main{
+    margin-top: 65px;
+}
+
+main #bgForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: url(img/bgForm.png);
+    width: 100%;
+    height: calc(100% - 65px);
+    background-size: cover;
+    background-position: center center;
+    top: 0;
+    margin-top: 65px;
+}
+
+main .formz{
+    background-color: #ffffff;
+    height: auto;
+    width: 500px;
+    font-family: "Roboto" ,Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.submitButton{
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border: 2px solid #1241FF;
+    background: #1241FF;
+    position: static;
+    text-transform: uppercase;
+    font-family: "RobotoBold" ,Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+}
+.submitButton:hover {
+    background: #0e33c5;
+    border: 2px solid #0e33c5;
+}
+
+.submitButton:active {
+    background: #0e33c5;
+    border: 2px solid #0e33c5;
+    position: relative;
+    top: 1px;
+}
+
+.formz a{
+    text-transform: uppercase;
+    color: #111;
+    font-family: "RobotoBold" ,Arial, Helvetica, sans-serif;
+    position: static;
+    padding: 10px 30px 20px 30px;
+    transition: 0.3s;
+}
+
+.formz a:hover, form a:focus{
+    color: #1241FF;
+}
+
+.formz a:active{
+    text-decoration: underline;
+}
+
+.input{
+    border: 1px;
+    border-bottom: solid 2px #5A5A5A;
+    width: 80%;
+    padding: 5px 0;
+    margin-bottom: 20px;
+    font-family: "RobotoCondensed" ,Arial, Helvetica, sans-serif;
+    font-size: 1.02rem;
+}
+
+.input:active, .input:focus{
+    outline: none;
+    border-bottom: solid 2px #1241FF;
+}
+
+main .formz img{
+    height: 60px;
+    position: relative;
+    left: 30%;
+    bottom: -10px;
+}
+
+main .formz p{
+    width: 80%;
+    color: #5A5A5A;
+}
+
+main .fFooter{
+    text-align: center;
+    border-top: solid 1px #5a5a5a4f ;
+    margin-top: 30px;
+    padding-top: 15px ;
+}
+
+main .formz .fTitle{
+    position: relative;
+    color: #111;
+    text-transform: uppercase;
+    font-family: "RobotoBold" ,Arial, Helvetica, sans-serif;
+    bottom: 30px;
+    font-size: 1.3rem;
+}
+
+main .formz::-webkit-scrollbar {
+    display: none;
+}
