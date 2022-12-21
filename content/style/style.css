@@ -426,11 +426,10 @@ section#reserv img {
     width: 80%;
 }
 
-section#reserv button {
+section#reserv button, section#myreserve button {
     background-color: #0e35d1;
     border-radius: 3px;
-    width: 50%;
-    padding: 10px 20px;
+    padding: 10px 10px;
     text-align: center;
     color: #ffffff;
     text-decoration: none;
@@ -439,7 +438,7 @@ section#reserv button {
     margin:20px 0;
 }
 
-section#reserv button:hover {
+section#reserv button:hover, section#myreserve button:hover {
     cursor: pointer;
 }
 
@@ -462,13 +461,31 @@ section#myreserve {
 } 
 
 section#myreserve article {
-    width: 45%;
     margin: 10px;
-    height: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
     border-radius: 10px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+}
+
+section#myreserve article img {
+    width: 60%;
+}
+
+section#myreserve article p {
+    padding: 5px;
+}
+
+section#myreserve article p#info {
+    color:#0059ff;
+}
+
+.contentButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media (min-width:1048px) {
@@ -517,7 +534,7 @@ section#myreserve article {
     }
 
     section .card:hover {
-        transform: scale(1.05);
+        transform: scale(1.10);
     }
 
     .msg {

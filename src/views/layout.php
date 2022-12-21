@@ -16,13 +16,13 @@
         </div>
         <nav>
             <?php
-                if ($_SESSION['type'] == "admin") {
+                if ($_SESSION['type'] == "Admin") {
                     echo '<li><a href="index.php">Accueil</a></li>';
                     echo '<li><a href="item_mgmt.php">Gestion du matériel</a></li>'; #Consulter - Ajouter - Modifier - Supprimer
                     echo '<li><a href="rent_mgmt.php">Gestion des reservation</a></li>'; #Accepter - Refuser
                     echo '<li><a href="loan.php">Gestion des prêt</a></li>'; #Ajouter - Supprimer (retour)
-                    echo '<li id="last"><a href="stat.php">Statistiques</a></li>'; #Consulter
-                } else {
+                    echo '<li id="last"><a href="stat.php">Statistiques</a></li>'; #Consulter statistiques
+                } else if ($_SESSION['type'] == "User") {
                     echo '<li><a href="index.php">Accueil</a></li>'; #Voir Offre - Reserver
                     echo '<li><a href="myreserv.php">Mes prêts et reservations</a></li>'; #Consulter - Modifier - Supprimer
                 }
@@ -30,8 +30,8 @@
         </nav>
         <div>
             <?php
-            if ($_SESSION['type'] == "admin" || $_SESSION['type'] == "user") {
-                echo '<a href="index.php">';
+            if ($_SESSION['type'] == "Admin" || $_SESSION['type'] == "User") {
+                echo '<a href="index.php?action=deco">';
                 echo '<p>Deconnexion</p>';
                 echo '<img src="content/img/user1.png" alt="user">';
                 echo '</a>';

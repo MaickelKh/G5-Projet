@@ -1,14 +1,17 @@
 <?php
 
 session_start();
-$_SESSION['name'] = "Maickel";
-$_SESSION['type'] = "user";
 
 require_once('src/controllers/home.php');
 require_once('src/controllers/reservation.php');
 
+if (isset($_GET['action']) && $_GET['action'] == "deco") {
+    session_destroy();
+    header('Location:index.php');
+    exit();
+}
 
-if ($_SESSION['type'] == "user") {
+if ($_SESSION['type'] == "User") {
     try {
 
         #Est on dans le cas d'une reservation
@@ -28,6 +31,8 @@ if ($_SESSION['type'] == "user") {
                 }
                 addOrder($id, $_SESSION['name']);
                 editAvailable($id);
+                /* getLastLease($_SESSION['name']); */
+                changeLease($first['idItem'], getLastLease($_SESSION['name']));
                 header('Location: index.php?msg=ok');
                 exit();
             }
@@ -53,6 +58,9 @@ if ($_SESSION['type'] == "user") {
         #echo 'Erreur : ' . $e->getMessage();
     }        
 }
-else {
+else if($_SESSION['type'] == "Admin"){
     echo 'Vous êtes connecté en temps que Admin';
+}
+else {
+    Home();
 }

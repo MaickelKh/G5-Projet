@@ -4,6 +4,7 @@ function Reservation(){
     $reservation = new Reserv();
     $reservation->db = new DbConnect();
     $itemToReserv = $reservation->getItemToReserv($_GET['type']);
+    $userLeases = $reservation->getLease($_SESSION['name']);
 
     require('src/views/reservation.php');
 }
@@ -59,5 +60,29 @@ function editAvailable($itemID) {
     $db = getDb();
     $req=$db->prepare("UPDATE items SET available=0 WHERE ID_item=:itemID");
     $req->bindParam(':itemID', $itemID);
+    $req->execute();
+}
+
+function getLastLease($user)
+{
+    $bdd = getDb();
+    $req=$bdd->prepare(" SELECT itemleases.ID_lease FROM itemleases WHERE itemleases.Username=:user ORDER BY itemleases.ID_lease DESC LIMIT 1; ");
+    $req->bindParam(':user', $user);
+    $req->execute();
+    $lastLease = null;
+    while($tempData = $req->fetch()){
+
+        $lastLease = $tempData['ID_lease'];
+    }
+    $req->closeCursor();
+    return $lastLease;
+}
+
+function changeLease($idItem,$lease)
+{
+    $bdd = getDb();
+    $req=$bdd->prepare("UPDATE items SET items.leaseID =:lease1 WHERE items.ID_item = :idItem1");
+    $req->bindParam(':lease1', $lease);
+    $req->bindParam(':idItem1', $idItem);
     $req->execute();
 }

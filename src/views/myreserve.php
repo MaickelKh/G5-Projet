@@ -4,24 +4,30 @@ $title = "Equipe 5 - prêts et reservations";
 ob_start(); ?>
 
 <section id="myreserve">
-    <article>
-        <img src="content/img/items/ordi.png">
-        <div class="right">
-            <p>Status : </p>
-            <p>En attente</p>
-            <p>Date de récupération : </p>
-            <p>Avant le 24/12/2022</p>
-            <p>Date de fin</p>
-            <p>20/01/2023</p>
-            <button>Rendre</button>
-        </div>
-    </article>
-    <article>
-        salut
-    </article>
-    <article>
-        salut
-    </article>
+        <?php 
+        foreach ($userLeases as $userLease) {
+            echo '<article>';
+                echo '<img src="content/img/items/ordi.png">';
+                echo '<div class="right">';
+                    echo '<p id="info">',$userLease['typeName'],'</p>';
+                    echo '<p>Status</p>';
+                    echo '<p id="info">',$userLease['status'],'</p>';
+                    echo '<p>Date de récupération</p>';
+                    echo '<p id="info">',$userLease['startDate'],'</p>';
+                    echo '<p>Date de fin</p>';
+                    echo '<p id="info">',$userLease['endDate'],'</p>';
+                    echo '<div class="contentButton">';
+                        echo '<button>Prolonger</button>';
+                        echo '<button>Rendre</button>';
+                    echo '</div>';
+                echo '</div>';
+            echo '</article>';
+
+            /* 'id' => $row['ID_lease'], */
+            /* 'username' => $row['Username'], */
+            /* 'itemID' => $row['itemID'], */
+
+        } ?>
 </section>
 
 
